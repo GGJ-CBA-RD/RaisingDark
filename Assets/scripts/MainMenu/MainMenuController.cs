@@ -18,7 +18,7 @@ public class MainMenuController : MonoBehaviour {
 	void onClickPlay (GameObject Go) {
 		print("touch");
 		modal.SetActive(true);
-		modal.GetComponent<LevelLoader>().levelName="stage2";
+		modal.GetComponent<LevelLoader>().levelName="habitacion1";
 		modal.GetComponent<LevelLoader>().fadeIn();
 
 	}
@@ -28,6 +28,6 @@ public class MainMenuController : MonoBehaviour {
 	}
 
 	void onClickExit (GameObject Go) {
-		
+		Application.Quit();
 	}
 }

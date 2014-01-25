@@ -5,9 +5,10 @@ public class LevelLoader : MonoBehaviour {
 	UISprite sprite;
 	public float fadeTime = 0.5f;
 	public string levelName;
+	public bool loadOnStart = false;
 	// Use this for initialization
 	void Start () {
-
+		if(loadOnStart)faidOut();
 	}
 	
 	// Update is called once per frame
@@ -15,6 +16,11 @@ public class LevelLoader : MonoBehaviour {
 	{
 
 		iTween.ValueTo(gameObject, iTween.Hash("from", 0.0f, "to", 1.0f,"time", fadeTime, "easetype", "linear","onupdate", "setAlpha", "oncomplete","LoadLevelOnClick"));	
+	}
+	public void faidOut()
+	{
+		
+		iTween.ValueTo(gameObject, iTween.Hash("from", 1.0f, "to", 0.0f,"time", fadeTime, "easetype", "linear","onupdate", "setAlpha", "oncomplete","LoadLevelOnClick"));	
 	}
 
 	void setAlpha(float newAlpha) 
