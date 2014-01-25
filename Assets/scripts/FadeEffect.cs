@@ -16,6 +16,13 @@ public class FadeEffect : MonoBehaviour {
 		iTween.ValueTo(gameObject, iTween.Hash("from", 1.0f, "to", 0.0f,"time", fadeTime, "easetype", "linear","onupdate", "setAlpha", "oncomplete","destroyGui"));	
 	}
 
+	// Update is called once per frame
+	public void fadeIn()
+	{
+			iTween.ValueTo (gameObject, iTween.Hash ("from", 0.0f, "to", 1.0f, "time", fadeTime, "easetype", "linear", "onupdate", "setAlpha"));	
+		
+	}
+
 	void setAlpha(float newAlpha) 
 	{
 		foreach(Transform child in transform)
