@@ -35,7 +35,7 @@ public class AccelerometerManager : MonoBehaviour
 		
 		phoneDeltaAcc = phoneAcc-LowPassFilter(phoneAcc);
 
-		if(Mathf.Abs(phoneDeltaAcc.y) >= 0.7f) 
+		if(Mathf.Abs(phoneDeltaAcc.y) >= 0.9f) 
 			itsShaking = true;
 		else
 			itsShaking = false;

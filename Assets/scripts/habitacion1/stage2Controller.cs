@@ -9,10 +9,20 @@ public class stage2Controller : MonoBehaviour {
 
 		UIEventListener.Get(interruptor).onClick += interruptorClick;
 	}
+
+	void Update()
+	{
+		if (AccelerometerManager.itsShaking) 
+		{
+			paredesAlt.SetActive (true);
+			paredesAlt.GetComponent<fadeInOut> ().fadeIn ();
+		}
+	}
 	
 	// Update is called once per frame
-	public void interruptorClick (GameObject Go) {
-		paredesAlt.SetActive(true);
-		paredesAlt.GetComponent<fadeInOut>().fadeIn();
+	public void interruptorClick (GameObject Go) 
+	{
+		//paredesAlt.SetActive(true);
+		//paredesAlt.GetComponent<fadeInOut>().fadeIn();
 	}
 }

@@ -5,23 +5,26 @@ public class fadeInOut : MonoBehaviour {
 	UISprite sprite;
 	public float fadeTime = 0.5f;
 	float t = 0;
-
+	bool canFade;
 	// Use this for initialization
 	void Start () {
 		//fadeIn();
+		canFade = true;
 	}
 
 	void Update()
 	{
-
-
 
 	}
 	
 	// Update is called once per frame
 	public void fadeIn()
 	{
-		iTween.ValueTo(gameObject, iTween.Hash("from", 0.0f, "to", 1.0f,"time", fadeTime, "easetype", "linear","onupdate", "setAlpha", "oncomplete","fadeOut"));	
+		if (canFade) 
+		{
+			canFade = false;
+			iTween.ValueTo (gameObject, iTween.Hash ("from", 0.0f, "to", 1.0f, "time", fadeTime, "easetype", "linear", "onupdate", "setAlpha", "oncomplete", "fadeOut"));	
+		}
 	}
 
 	public void fadeOut()
@@ -52,5 +55,6 @@ public class fadeInOut : MonoBehaviour {
 	void disableObject()
 	{
 		gameObject.SetActive(false);
+		canFade = true;
 	}
 }
